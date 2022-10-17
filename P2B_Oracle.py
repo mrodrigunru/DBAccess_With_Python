@@ -138,6 +138,7 @@ def dbObtenerPoblacion():
         print("Número de registros recuperados:", len(resul))
         print("Número de registros recuperados:", cursor.rowcount)
         print('------------------------------')
+        cursor.close()
     except oracledb.Error as error:
         print("Error. No se ha podido consultar al proyecto con código ", dniObjetivo)
         print(error)
@@ -211,6 +212,7 @@ def dbInsertarSectores():
         consulta = "INSERT INTO Sectores VALUES(:codigo, :nombre, :porcentaje, :ingresos)"
         cursor.execute(consulta, [codigo, nombre, porcentaje, ingresos])
         print("Tupla insertada con éxito")
+        cursor.close()
     except oracledb.Error as error:
         print("Error. No se ha podido insertar el sector")
         print(error)
@@ -227,6 +229,7 @@ def dbModificarSectores():
         consulta = "UPDATE Sectores SET NOMBRES = :nombre WHERE cods = 0"
         cursor.execute(consulta, [nombre])
         print("Tupla/s modificada/s con éxito")
+        cursor.close()
     except oracledb.Error as error:
         print("Error. No se ha podido modificar el sector")
         print(error)
