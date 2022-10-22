@@ -245,6 +245,7 @@ def dbBorrarSectores():
         consulta = "DELETE FROM Sectores WHERE cods = %s"
         cursor.execute(consulta, [cod])
         print("Tupla borrada con éxito")
+        cursor.close()
     except psycopg2.DatabaseError as error:
         print("Error. No se ha podido borrar el sector")
         print(error)

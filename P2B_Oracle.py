@@ -245,6 +245,7 @@ def dbBorrarSectores():
         consulta = "DELETE FROM Sectores WHERE cods = :cod"
         cursor.execute(consulta, [cod])
         print("Tupla borrada con éxito")
+        cursor.close()
     except oracledb.Error as error:
         print("Error. No se ha podido borrar el sector")
         print(error)
